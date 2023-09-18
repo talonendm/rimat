@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll-Activated Text</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .text {
+            font-size: 36px;
+            line-height: 1.5;
+        }
+
+        .text2 {
+            font-size: 48px;
+            line-height: 1.5;
+        }
+
+        /* Add this CSS for fading effect */
+        .fade-out {
+            opacity: 0.2;
+            transition: opacity 0.5s;
+            padding-left: 20px;
+        }
+
+
+
+        /* Style the sentences based on their class */
+        .indent {
+            padding-left: 20px;
+            /* Add indentation */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="text2">Määritelmiä</div>
+        <div class="text">
+
+
+            <p>Vesikatto</p>
+            <p class="fade-out">tarkoittaa katteen ja mahdollisen aluskatteen ja näitä välittömästi kannattavien rakenneosien muodostamaa rakennetta.</p>
+            <br>
+           
+            <p>Kate</p>
+            <p class="fade-out">tarkoittaa pintarakennetta, joka riittävästi kallistettuna suojaa alapuoliset rakenteet vesi- ja lumisateen haitalliselta vaikutukselta.</p>
+            <br>                  
+
+            <p>Aluskate</p>
+            <p class="fade-out">“tarkoittaa katteen alapuolista ainekerrosta, joka estää katteen saumojen tai reunojen kautta mahdollisesti tunkeutuvan veden tai lumen sekä kondenssiveden pääsyn yläpohjaan ja jota pitkin vesi valuu ulkoseinälinjan ulkopuolelle.”</p>
+            <br>
+            <p>Aluskatteen pääasiallinen tarkoitus</p>
+            <p class="fade-out">“Peltikatteiden alla tulee käyttää aluskateluokituksen vaatimukset täyttävää aluskatetta, jonka pääasiallinen tarkoitus on johtaa vesikatteen alapintaan muodostuva kondenssivesi sekä katteen saumoista sen alle pääsevä vesi hallitusti ulkoseinälinjan ulkopuolelle.”</p>
+
+            <br>
+            <p class="fade-out">[<a href="https://talonendm.github.io/2022-05-20-vesikattolaki/">lisätiedot</a>]</p>
+            
+            <!-- Add more sentences as needed -->
+        </div>
+    </div>
+    <script>
+        const text = document.querySelector('.text');
+        const sentences = text.querySelectorAll('p');
+        let currentIndex = 0;
+
+        function revealNextSentence() {
+            if (currentIndex < sentences.length) {
+                sentences[currentIndex].style.opacity = 1;
+                currentIndex++;
+            }
+        }
+       
+            
+        // Function to check if an element is in the viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
+
+        function fadeSentencesOnScroll() {
+            sentences.forEach((sentence) => {
+                if (isElementInViewport(sentence)) {
+                    sentence.style.opacity = 1;
+                } else {
+                    sentence.style.opacity = 0;
+                }
+            });
+        }
+
+         // Initial check to see if any sentences are in the viewport on page load
+         window.addEventListener('load', fadeSentencesOnScroll);
+
+// Check for elements in the viewport on scroll
+window.addEventListener('scroll', fadeSentencesOnScroll);
+
+       
+    </script>
+</body>
+
+</html>
