@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Määräykset</title>
+    <link rel="stylesheet" type="text/css" href="/rimat/assets/html/style-html-white.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="text2">Määritelmiä - Definitions</div>
+        <div class="text">
+
+
+            <p><a href="/rimat/assets/html/maaritelmat.html">Aluskatteen</a> pääasiallinen tarkoitus</p>
+            <p class="fade-out">Peltikatteiden alla tulee käyttää aluskateluokituksen vaatimukset täyttävää aluskatetta, jonka pääasiallinen tarkoitus on johtaa vesikatteen alapintaan muodostuva kondenssivesi sekä katteen saumoista sen alle pääsevä vesi hallitusti ulkoseinälinjan ulkopuolelle.</p>
+            <p class="fade-out-en"><b>The main purpose of an underlayment</b> Under metal roofs, it is necessary to use an underlayment that meets the requirements of its classification. The primary purpose of this underlayment is to manage and direct condensation water forming on the underside of the roof covering, as well as any water that may penetrate through the roof seams, safely outside the exterior wall line. [GPT Turbo 3.5]</p>
+
+            <p>2 luku<br>Yleiset kosteustekniset periaatteet</p>
+            <p class="fade-out">"Sisäisistä ja ulkoisista kosteuslähteistä peräisin oleva vesihöyry, vesi, lumi tai jää ei saa haittaa aiheuttaen kulkeutua rakenteisiin." ja "Sadevesi tai lumi ei saa kulkeutua eikä kosteus saa kerääntyä vaipparakenteeseen" ja "Rakennuksen vaipan ja sen rakennekerrosten ja liitosten on muodostettava kokonaisuus, joka estää tuulta, viistosadetta ja tuulenpainetta kuljettamasta vettä vaipan pintaa pitkin rakenteisiin."</p>
+            <p class="fade-out-reference">[<a href="https://www.finlex.fi/fi/laki/alkup/2017/20170782#Pidm46333579984176">5 § Rakennuksen kosteustekninen toiminta</a>,
+                Voimaantulo: 01.01.2018,<br>Ympäristöministeriön asetus rakennusten kosteusteknisestä toimivuudesta 782/2017]</p>
+            <p class="fade-out-en"><b>General Moisture Control Principles</b> "Water vapor, water, snow, or ice originating from internal and external sources must not be allowed to cause harm by penetrating into the structures.", 
+                "Rainwater or snow must not be allowed to ingress, and moisture must not accumulate within the building envelope.",
+                "The building envelope and its structural layers and connections must form a system that prevents wind, oblique rain, and wind pressure from conveying water along the surface of the envelope into the structures." [GPT Turbo 3.5]</p>
+            <br>
+
+            <p>6 luku<br>Yläpohja ja ulkoilman vastaiset seinä- ja kattorakenteet</p>
+            <p class="fade-out">Veden on poistuttava vesikatolta rakennusta vahingoittamatta. Vesikatolla on rakenteineen ja liitoksineen oltava katteelle sopiva kaltevuus ja tiiviys veden poisjohtamiseksi.</p>
+            <p class="fade-out-reference">[<a href="https://www.finlex.fi/fi/laki/alkup/2017/20170782#Pidm46333578304176">26 § Veden poisjohtaminen vesikatolta</a>,
+                Voimaantulo: 01.01.2018,<br>Ympäristöministeriön asetus rakennusten kosteusteknisestä toimivuudesta 782/2017]</p>
+            <p class="fade-out-en"><b>Roof and Exterior Wall and Ceiling Structures</b> Water must be removed from the roof without causing damage to the building. The roof, along with its structures and connections, must have an appropriate slope and sealing to channel water away. [GPT Turbo 3.5]</p>
+            <br>
+
+
+            <a href="/rimat/index.html" class="back-button">Back to Main Page</a>
+
+            <br>
+            <p class="fade-out-reference">[<a href="https://talonendm.github.io/2022-05-20-vesikattolaki/">lisätiedot - more about "The Roof"</a>]</p>
+            
+            <!-- Add more sentences as needed -->
+        </div>
+    </div>
+    <script>
+        const text = document.querySelector('.text');
+        const sentences = text.querySelectorAll('p');
+        let currentIndex = 0;
+
+        function revealNextSentence() {
+            if (currentIndex < sentences.length) {
+                sentences[currentIndex].style.opacity = 1;
+                currentIndex++;
+            }
+        }
+       
+            
+        // Function to check if an element is in the viewport
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+            );
+        }
+
+        function fadeSentencesOnScroll() {
+            sentences.forEach((sentence) => {
+                if (isElementInViewport(sentence)) {
+                    sentence.style.opacity = 1;
+                } else {
+                    sentence.style.opacity = 0;
+                }
+            });
+        }
+
+         // Initial check to see if any sentences are in the viewport on page load
+         window.addEventListener('load', fadeSentencesOnScroll);
+
+// Check for elements in the viewport on scroll
+window.addEventListener('scroll', fadeSentencesOnScroll);
+
+       
+    </script>
+</body>
+
+</html>
