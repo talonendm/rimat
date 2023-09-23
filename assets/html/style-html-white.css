@@ -7,20 +7,29 @@ body {
 .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 20px;
+  padding: 10px;
 }
 
 .text {
   font-size: 24px;
   line-height: 1.5;
+  padding-left: 2px;
 }
 
 .text2 {
   font-size: 36px;
   line-height: 1.5;
+  padding-left: 0px;
 }
 
 /* Add this CSS for fading effect */
+
+.fade-out-start {
+  opacity: 1;
+  transition: opacity 0s;
+  padding-left: 0px;
+}
+
 .fade-out {
   opacity: 0.2;
   transition: opacity 0.5s;
